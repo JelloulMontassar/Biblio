@@ -1,5 +1,6 @@
 package com.glsi.xpress.Entity;
 
+import com.glsi.xpress.Entity.Enum.BookCategory;
 import com.glsi.xpress.Entity.Enum.BookStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -29,4 +30,6 @@ public class Book {
     private int quantity;
     @Enumerated(EnumType.STRING)
     private BookStatus status;
+    @Enumerated(EnumType.STRING)
+    private BookCategory category;
 }
