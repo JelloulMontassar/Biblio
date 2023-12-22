@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.cglib.core.Local;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,8 +22,9 @@ public class Loans {
     private LocalDateTime startingTime;
     private LocalDateTime finishingTime;
 
-    //relations with other tables manytoone  
-
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
 }
