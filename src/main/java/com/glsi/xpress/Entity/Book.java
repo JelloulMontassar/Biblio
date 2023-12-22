@@ -32,4 +32,6 @@ public class Book {
     private BookStatus status;
     @Enumerated(EnumType.STRING)
     private BookCategory category;
+    @Lob
+    private byte[] BookCover;
 }
