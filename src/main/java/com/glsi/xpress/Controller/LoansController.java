@@ -1,11 +1,16 @@
 package com.glsi.xpress.Controller;
 
+import com.glsi.xpress.Entity.Book;
+import com.glsi.xpress.Entity.User;
+import com.glsi.xpress.Service.BookService;
+import com.glsi.xpress.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.glsi.xpress.Entity.Loan;
 import com.glsi.xpress.Service.LoanService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/loans")
@@ -14,9 +19,18 @@ public class LoansController {
 
     @Autowired
     private LoanService loanService;
-
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private BookService bookService;
     @PostMapping
     public Loan createLoans(@RequestBody Loan loan) {
+        Long user_id  = loan.getUser().getId();
+        User user = userService.getUserById(user_id);
+        loan.setUser(user);
+        Long book_id = loan.getBook().getId();
+        Optional<Book> book = bookService.getBookById(book_id);
+        loan.setBook(book.get());
         return loanService.createLoan(loan);
     }
 

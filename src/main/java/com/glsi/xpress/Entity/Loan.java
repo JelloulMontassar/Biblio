@@ -23,7 +23,7 @@ public class Loan {
     private LocalDateTime finishingTime;
     private boolean isRenewed;
     private boolean isOverdue;
-    private int renewCount;
+    private int renewCount=0 ;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -51,4 +51,17 @@ public class Loan {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Loan{" +
+                "id=" + id +
+                ", startingTime=" + startingTime +
+                ", finishingTime=" + finishingTime +
+                ", isRenewed=" + isRenewed +
+                ", isOverdue=" + isOverdue +
+                ", renewCount=" + renewCount +
+                ", user=" + user +
+                ", book=" + book +
+                '}';
+    }
 }
