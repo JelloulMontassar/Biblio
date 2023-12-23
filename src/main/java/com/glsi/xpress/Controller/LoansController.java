@@ -44,11 +44,13 @@ public class LoansController {
         return loanService.getAllLoans();
     }
 
+
+    /*
     @PutMapping("/{loansId}")
     public Loan updateLoans(@PathVariable Long loansId, @RequestBody Loan loan) {
         loan.setId(loansId);
         return loanService.createLoan(loan);
-    }
+    }*/
 
     @DeleteMapping("/{id}")
     public void deleteLoans(@PathVariable Long id) {
